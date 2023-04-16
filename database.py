@@ -7,7 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 
-SQLALCHEMY_DATABASE_URL = ''
+SQLALCHEMY_DATABASE_URL = 'postgresql://admin_user:admin_password@localhost:7000/office_mgmt'
 
 
 engine = create_engine(
