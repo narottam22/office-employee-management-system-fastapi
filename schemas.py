@@ -10,7 +10,7 @@ class EmployeeCreate(BaseModel):
     bonus: Optional[int] = None
     phone: Optional[str] = None
     role: Optional[str] = None
-    department: Optional[str] = None
+    dept: Optional[str] = None
 
     class Config:
         orm_mode = True
@@ -26,7 +26,7 @@ class EmployeeResponse(BaseModel):
     phone: Optional[str] = None
     created_at: Optional[time] = None
     role: Optional[str] = None
-    department: Optional[str] = None
+    dept: Optional[str] = None
 
     class Config:
         orm_mode = True

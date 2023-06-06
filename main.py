@@ -47,3 +47,27 @@ async def get_employee_record(id: int, db: Session = Depends(get_db)):
     except Exception as e:
         print(e)
         raise HTTPException(status_code=500, detail=str(e.__class__.__name__))
+    
+@app.put("/employee/{id}", response_model=schemas.EmployeeResponse)
+async def update_employee_record(id: int, employee_update: schemas.EmployeeCreate, db: Session = Depends(get_db)):
+    '''Returns the record of employee by id'''
+
+    try:
+        db_employee = crud.edit_employee(id, employee_update, db)
+
+        return db_employee
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=500, detail=str(e.__class__.__name__))
+    
+@app.delete("/employee/{id}")
+async def remove_employee_record(id: int, db: Session = Depends(get_db)):
+    '''Returns the record of employee by id'''
+
+    try:
+        db_employee = crud.delete_employee(id, db)
+
+        return db_employee
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=500, detail=str(e.__class__.__name__))
